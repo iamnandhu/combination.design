@@ -1,0 +1,79 @@
+<div class="bg-white lg:px-[100px] px-[19px] lg:py-[32px] py-[16px] flex justify-between items-center h-fit max-w-[1440px] mx-auto">
+
+    <ul class="hidden lg:flex items-center gap-[52px]">
+        <li class="text-[#033E37] text-16 font-[600] leading-normal">
+            <a [routerLink]="['']">
+                Why
+            </a>
+        </li>
+
+        <li class="text-[#033E37] text-16 font-[600] leading-normal">
+            <a [routerLink]="['']">
+                Subscribe
+            </a>
+        </li>
+
+        <li class="text-[#033E37] text-16 font-[600] leading-normal">
+            <a [routerLink]="['']">
+                Buy me a Coffee
+            </a>
+        </li>
+
+        <li class="text-[#033E37] text-16 font-[600] leading-normal">
+            <a [routerLink]="['']">
+                Patreon
+            </a>
+        </li>
+    </ul>
+
+    <ul class="lg:hidden flex items-center gap-[5px]">
+        <li #menuIcon class="p-2.5 rounded-[8px] border border-[#033E37] cursor-pointer" (click)="toggleMobileNav($event)">
+            <img [src]="hamIcon" alt="" class="active::bg-transparent">
+        </li>
+
+        <li class="w-[32px] h-[32px] bg-[#D9D9D9] rounded-[8px] text-[#000] text-10 leading-[16px] flex justify-center items-center">
+            Logo
+        </li>
+    </ul>
+
+    <div #mobileMenu (click)="$event.stopPropagation()" class="lg:hidden flex flex-col justify-between w-[320px] h-[calc(100vh-40px)] bg-[#E9FAF4] px-[19px] py-[24px] absolute left-0 top-0" *ngIf="flagIsMobileNavOpen">
+        <div class="flex flex-col gap-[8px]">
+            <div class="logo p-2.5">
+                <img [src]="logo" alt="">
+            </div>
+
+            <div class="flex flex-col py-4">
+                <div class="flex flex-col gap-[11px] px-2.5 pb-[32px] border-l border-[#92E8C9]" [ngClass]="{'sideNavDropdown-active': flagIsOptionOneDropdownVisible}">
+                    <div  class="flex items-center justify-between">
+                        <span>Option 1</span>
+                        <img [src]="mobileSidebarDropdownArrowDown" class="cursor-pointer" alt="" (click)="toggleOptionOneDropdownVisibility()" *ngIf="!flagIsOptionOneDropdownVisible">
+                        <img [src]="mobileSidebarDropdownArrowUp" class="cursor-pointer" alt="" (click)="toggleOptionOneDropdownVisibility()" *ngIf="flagIsOptionOneDropdownVisible">
+                    </div>
+                    
+                    <ul *ngIf="flagIsOptionOneDropdownVisible" class="px-[8px] flex flex-col gap-[10px]" [@fadeInOut]>
+                        <li>Drop Down 1</li>
+                        <li>Drop Down 2</li>
+                        <li>Drop Down 3</li>
+                    </ul>
+                </div>
+
+                <div class="cursor-pointer px-2.5 pb-[32px] border-l border-[#92E8C9]">Option 2</div>
+
+                <div class="cursor-pointer px-2.5 pb-[32px] border-l border-[#92E8C9]">Option 3</div>
+
+                <div class="cursor-pointer px-2.5 pb-[32px] border-l border-[#92E8C9]">Option 4</div>
+            </div>
+
+        </div>
+
+        <div class="close-menu px-2.5 py-4 flex justify-center items-center" (click)="toggleMobileNav($event)">
+            <p class="text-16 leading-[23px]">Close</p>
+        </div>
+    </div>
+
+    <button class="bg-[#92E8C9] hover:bg-[#83d0b4] rounded-[12px] lg:px-8 px-[24px] lg:py-4 py-[8px] h-fit w-fit
+                  text-[#033E37] lg:text-18 text-14 font-[600] lg:leading-[24px] leading-[16px]">
+                  Try yourself
+    </button>
+
+</div>
