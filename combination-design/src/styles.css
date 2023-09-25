@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&family=Manrope:wght@200;400;600;800&family=Poppins:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+::-moz-selection {
+    color: #fafafa;
+    background: #6661F2;
+  }
+  
+::selection {
+    color: #fafafa;
+    background: #6661F2;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #FEFEFE;
+}
